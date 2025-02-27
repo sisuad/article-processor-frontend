@@ -9,14 +9,7 @@ const nextConfig: NextConfig = {
     // Only use this temporarily to get the build working
     ignoreDuringBuilds: true,
   },
-  async rewrites() {
-    return [
-      {
-        source: "/api/:path*",
-        destination: `${process.env.API_URL || "http://localhost:3000"}/:path*`,
-      },
-    ];
-  },
+  // Removed rewrites() function as it's not compatible with static export
 };
 
 export default nextConfig;

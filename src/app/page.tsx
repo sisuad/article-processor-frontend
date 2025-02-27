@@ -64,7 +64,10 @@ export default function Home() {
     if (jobId && isProcessing) {
       intervalId = setInterval(async () => {
         try {
-          const response = await fetch(`api/processStatus/${jobId}`);
+          // For static export, make direct API calls to your backend server
+          const apiUrl =
+            process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+          const response = await fetch(`${apiUrl}/processStatus/${jobId}`);
           const data = await response.json();
 
           if (Array.isArray(data)) {
@@ -128,7 +131,9 @@ export default function Home() {
     }
 
     try {
-      const response = await fetch("api/process", {
+      // For static export, make direct API calls to your backend server
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+      const response = await fetch(`${apiUrl}/process`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -154,6 +159,7 @@ export default function Home() {
     }
   };
 
+  // Rest of your component remains the same...
   const handleResultEdit = (index: number, field: string, value: any) => {
     const updatedResults = [...editableResults];
     updatedResults[index] = {
