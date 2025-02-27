@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { jobId: string } }
+  context: { params: { jobId: string } }
 ) {
   try {
     const apiUrl = process.env.API_URL || "http://localhost:3000";
-    const jobId = params.jobId;
+    const jobId = context.params.jobId;
 
     const response = await fetch(`${apiUrl}/processStatus/${jobId}`, {
       method: "GET",
