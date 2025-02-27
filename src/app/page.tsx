@@ -19,6 +19,9 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [editableResults, setEditableResults] = useState<any[]>([]);
 
+  const BACKEND_API_URL =
+    process.env.NEXT_PUBLIC_BACKEND_API_URL || "http://localhost:3000";
+
   // Available models by provider
   const modelOptions: Record<string, string[]> = {
     openai: ["gpt-3.5-turbo", "gpt-4o"],
@@ -65,9 +68,9 @@ export default function Home() {
       intervalId = setInterval(async () => {
         try {
           // For static export, make direct API calls to your backend server
-          const apiUrl =
-            process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-          const response = await fetch(`${apiUrl}/processStatus/${jobId}`);
+          const response = await fetch(
+            `${BACKEND_API_URL}/processStatus/${jobId}`
+          );
           const data = await response.json();
 
           if (Array.isArray(data)) {
@@ -132,8 +135,7 @@ export default function Home() {
 
     try {
       // For static export, make direct API calls to your backend server
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-      const response = await fetch(`${apiUrl}/process`, {
+      const response = await fetch(`${BACKEND_API_URL}/process`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
