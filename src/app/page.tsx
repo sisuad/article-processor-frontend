@@ -305,11 +305,9 @@ export default function Home() {
           <section className="results-section">
             <div className="results-header">
               <h2>Results</h2>
-              {editableResults.length > 1 && (
-                <button onClick={copyAllResults} className="copy-button">
-                  Copy All
-                </button>
-              )}
+              <button onClick={copyAllResults} className="copy-button">
+                Copy All
+              </button>
             </div>
 
             {editableResults.map((result, index) => (
