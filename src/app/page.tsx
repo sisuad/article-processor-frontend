@@ -26,6 +26,7 @@ export default function Home() {
   const modelOptions: Record<string, string[]> = {
     openai: ["gpt-3.5-turbo", "gpt-4o"],
     google: ["gemini-1.5-pro", "gemini-2.0-flash"],
+    claude: ["claude-3-5-haiku", "claude-3-5-sonnet", "claude-3-7-sonnet"],
     custom: [
       "gpt-3.5-turbo",
       "gpt-4o",
@@ -115,7 +116,7 @@ export default function Home() {
     setIsProcessing(true);
 
     // Parse URLs from textarea (split by newlines)
-    const urlList = urls.split("\n").filter(url => url.trim() !== "");
+    const urlList = urls.split("\n").filter((url) => url.trim() !== "");
 
     if (urlList.length === 0) {
       setError("Please enter at least one URL");
@@ -177,7 +178,7 @@ export default function Home() {
       .then(() => {
         alert("Copied to clipboard!");
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Failed to copy:", err);
         alert("Failed to copy to clipboard");
       });
@@ -209,7 +210,7 @@ export default function Home() {
               <textarea
                 id="urls"
                 value={urls}
-                onChange={e => setUrls(e.target.value)}
+                onChange={(e) => setUrls(e.target.value)}
                 placeholder="https://news.mydrivers.com/1/1030/1030243.htm"
                 rows={8}
                 required
@@ -226,6 +227,7 @@ export default function Home() {
                 >
                   <option value="openai">OpenAI</option>
                   <option value="google">Google AI Studio</option>
+                  <option value="claude">Anthropic</option>
                   <option value="custom">Custom API</option>
                 </select>
               </div>
@@ -235,9 +237,9 @@ export default function Home() {
                 <select
                   id="model"
                   value={model}
-                  onChange={e => setModel(e.target.value)}
+                  onChange={(e) => setModel(e.target.value)}
                 >
-                  {modelOptions[provider]?.map(option => (
+                  {modelOptions[provider]?.map((option) => (
                     <option key={option} value={option}>
                       {option}
                     </option>
@@ -253,7 +255,7 @@ export default function Home() {
                   type="url"
                   id="customUrl"
                   value={customUrl}
-                  onChange={e => setCustomUrl(e.target.value)}
+                  onChange={(e) => setCustomUrl(e.target.value)}
                   placeholder="https://api.openai.com/v1/chat/completions"
                   required
                 />
@@ -266,7 +268,7 @@ export default function Home() {
                 type="password"
                 id="apiKey"
                 value={apiKey}
-                onChange={e => setApiKey(e.target.value)}
+                onChange={(e) => setApiKey(e.target.value)}
                 placeholder="Enter your API key"
                 required
               />
@@ -327,7 +329,7 @@ export default function Home() {
                   <input
                     type="text"
                     value={result.title || ""}
-                    onChange={e =>
+                    onChange={(e) =>
                       handleResultEdit(index, "title", e.target.value)
                     }
                   />
@@ -337,7 +339,7 @@ export default function Home() {
                   <label>Summary:</label>
                   <textarea
                     value={result.summary || ""}
-                    onChange={e =>
+                    onChange={(e) =>
                       handleResultEdit(index, "summary", e.target.value)
                     }
                     rows={4}
@@ -349,7 +351,7 @@ export default function Home() {
                   <input
                     type="text"
                     value={result.tags || ""}
-                    onChange={e =>
+                    onChange={(e) =>
                       handleResultEdit(index, "tags", e.target.value)
                     }
                   />
@@ -364,7 +366,7 @@ export default function Home() {
                         ? result.categories.join(", ")
                         : result.categories || ""
                     }
-                    onChange={e =>
+                    onChange={(e) =>
                       handleResultEdit(
                         index,
                         "categories",
@@ -378,7 +380,7 @@ export default function Home() {
                   <label>Content:</label>
                   <textarea
                     value={result.content || ""}
-                    onChange={e =>
+                    onChange={(e) =>
                       handleResultEdit(index, "content", e.target.value)
                     }
                     rows={8}
