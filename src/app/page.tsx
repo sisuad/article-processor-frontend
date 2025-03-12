@@ -32,6 +32,9 @@ export default function Home() {
       "gpt-4o",
       "gemini-1.5-pro",
       "gemini-2.0-flash",
+      "claude-3-5-haiku",
+      "claude-3-5-sonnet",
+      "claude-3-7-sonnet",
       "custom",
     ],
   };
