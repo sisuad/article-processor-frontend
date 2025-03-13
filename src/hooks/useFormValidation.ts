@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ApiConfig, ApiProvider, ApiType } from "../types";
+import { ApiProvider, ApiType } from "../types";
 
 interface FormValues {
   urls: string;

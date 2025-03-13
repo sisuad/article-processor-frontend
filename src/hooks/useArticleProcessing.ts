@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { ApiConfig, Article } from "../types";
 import {
   processArticles,
@@ -37,11 +37,13 @@ export const useArticleProcessing = () => {
 
         setState((prev) => ({
           ...prev,
-          jobId: response.jobId,
+          jobId: response.jobId ?? null,
         }));
 
         // Poll for results
-        pollJobResults(response.jobId);
+        if (response.jobId) {
+          pollJobResults(response.jobId);
+        }
       } catch (error) {
         setState((prev) => ({
           ...prev,

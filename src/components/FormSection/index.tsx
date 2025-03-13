@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Button from "../UI/Button";
 import ApiToggle from "./ApiToggle";
 import StandardApiSection from "./StandardApiSection";
@@ -10,7 +10,6 @@ import ApiKeyInput from "./ApiKeyInput";
 import JobIdRecovery from "./JobIdRecovery";
 import styles from "./FormSection.module.scss";
 import { ApiConfig, ApiProvider, ApiType } from "../../types";
-import { fetchModels } from "../../services/apiService";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 // Define the form state shape for localStorage
@@ -74,21 +73,12 @@ const FormSection: React.FC<FormSectionProps> = ({
   } = formState;
 
   // Store models for each provider in localStorage to avoid repeated fetching
-  const [providerModels, setProviderModels] = useLocalStorage<Record<ApiProvider, string[]>>(
+  const [providerModels] = useLocalStorage<Record<ApiProvider, string[]>>(
     "article-processor-provider-models", {
     openai: [],
     google: [],
     claude: [],
     "": [],
-  });
-
-  // Track when models are being fetched to avoid duplicate requests
-  // Track when models are being fetched to avoid duplicate requests
-  const [fetchingModels, setFetchingModels] = useState<Record<ApiProvider, boolean>>({
-    openai: false,
-    google: false,
-    claude: false,
-    "": false,
   });
 
   // Update individual form fields
