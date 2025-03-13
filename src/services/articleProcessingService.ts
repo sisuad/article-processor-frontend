@@ -52,7 +52,7 @@ export const getJobResults = async (
   jobId: string
 ): Promise<ProcessArticlesResponse> => {
   try {
-    const response = await fetch(`${BACKEND_API_URL}/${jobId}`, {
+    const response = await fetch(`${BACKEND_API_URL}/processStatus/${jobId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
