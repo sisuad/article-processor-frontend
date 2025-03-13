@@ -1,0 +1,46 @@
+// ResultsSection/TagsContainer/TagsContainer.module.scss
+@import "../../../styles/variables";
+
+.container {
+  margin-bottom: $spacing-base;
+}
+
+.label {
+  display: block;
+  margin-bottom: $spacing-sm;
+  font-weight: $font-weight-medium;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  margin-top: $spacing-md;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  background-color: $tag-bg;
+  color: $tag-text;
+  padding: $tag-padding;
+  border-radius: $border-radius-lg;
+  font-size: $font-size-small;
+}
+
+.tagRemove {
+  margin-left: $spacing-xs;
+  cursor: pointer;
+  font-weight: $font-weight-bold;
+}
+
+.addTagInput {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-md;
+}
+
+.tagInput {
+  flex: 1;
+  margin-bottom: 0;
+}

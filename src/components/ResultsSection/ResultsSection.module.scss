@@ -1,0 +1,20 @@
+@import "../../styles/variables";
+
+.resultsSection {
+  margin-top: $spacing-lg;
+}
+
+.noResults {
+  background: $white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  padding: $spacing-lg;
+  text-align: center;
+  color: $footer-text;
+}
+
+.resultsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}

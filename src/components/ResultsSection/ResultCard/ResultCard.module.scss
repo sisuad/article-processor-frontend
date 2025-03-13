@@ -1,0 +1,39 @@
+@import "../../../styles/variables";
+
+.resultCard {
+  background: $white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-lg;
+  position: relative;
+}
+
+.deleteResult {
+  position: absolute;
+  top: $spacing-base;
+  right: $spacing-base;
+  background: none;
+  border: none;
+  color: $error-color;
+  font-size: 20px;
+  padding: $spacing-xs;
+  cursor: pointer;
+}
+
+.resultHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-base;
+  padding-bottom: $spacing-md;
+  border-bottom: $border-width solid $border-color;
+}
+
+.resultField {
+  margin-bottom: $spacing-base;
+}
+
+.contentField textarea {
+  min-height: 150px;
+}

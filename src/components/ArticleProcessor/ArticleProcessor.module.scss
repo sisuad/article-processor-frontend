@@ -1,0 +1,7 @@
+@import "../../styles/variables";
+
+.appContainer {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $spacing-lg;
+}

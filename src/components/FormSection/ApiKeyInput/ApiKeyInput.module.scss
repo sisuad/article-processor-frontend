@@ -1,0 +1,22 @@
+@import "../../../styles/variables";
+
+.apiKeyContainer {
+  position: relative;
+  margin-bottom: $spacing-lg;
+}
+
+.apiKeyInput {
+  margin-bottom: 0;
+}
+
+.toggleVisibility {
+  position: absolute;
+  right: $spacing-md;
+  top: 32px; // Position below label
+  background: none;
+  border: none;
+  color: $primary-color;
+  cursor: pointer;
+  font-size: $font-size-small;
+  padding: $spacing-xs;
+}

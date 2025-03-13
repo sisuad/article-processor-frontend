@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+.formSection {
+  background: $white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  padding: $spacing-lg;
+}
+
+.submitButton {
+  margin-top: $spacing-lg;
+  padding: $submit-button-padding;
+  font-weight: $font-weight-medium;
+}

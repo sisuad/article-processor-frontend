@@ -1,0 +1,24 @@
+import { Article } from "./article.types";
+
+export type ApiProvider = "openai" | "google" | "claude" | "";
+export type ApiType = "standard" | "custom";
+
+export interface ApiConfig {
+  type: ApiType;
+  provider: ApiProvider;
+  model: string;
+  apiKey: string;
+  customUrl?: string;
+}
+
+export interface ProcessArticlesRequest {
+  urls: string[];
+  apiConfig: ApiConfig;
+}
+
+export interface ProcessArticlesResponse {
+  jobId?: string;
+  status?: "pending" | "processing" | "completed" | "error";
+  articles?: Article[];
+  error?: string;
+}

@@ -1,0 +1,17 @@
+@import "../../styles/variables";
+
+.main {
+  display: grid;
+  grid-template-columns: minmax($form-column-min-width, $form-column-width) 1fr;
+  gap: $grid-gap;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formColumn {
+}
+
+.resultsColumn {
+}

@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+
+.header {
+  text-align: center;
+  margin-bottom: $header-bottom-margin;
+  padding-bottom: $spacing-lg;
+  border-bottom: $border-width solid $border-color;
+}
+
+.title {
+  color: $primary-color;
+  margin-bottom: $spacing-md;
+  font-weight: $font-weight-bold;
+}
+
+.subtitle {
+  color: $text-color;
+  font-size: $font-size-base;
+}
